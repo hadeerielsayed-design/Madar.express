@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدار للخدمات اللوجستية والشحن | Madar Express</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0F1E36',
+                            light: '#1D2E4A',
+                            dark: '#0A1424'
+                        },
+                        gold: {
+                            DEFAULT: '#C59B27',
+                            light: '#E5BD47',
+                            dark: '#9A771C'
+                        },
+                        graybg: '#F4F6F9'
+                    },
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #E5BD47 0%, #C59B27 50%, #9A771C 100%);
+        }
+        .navy-gradient {
+            background: linear-gradient(135deg, #1D2E4A 0%, #0F1E36 100%);
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 30px -5px rgba(15, 30, 54, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-graybg text-gray-800 antialiased selection:bg-gold selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-navy text-white shadow-lg border-b border-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3 space-x-reverse group">
+                    <div class="w-12 h-12 rounded-xl gold-gradient p-2.5 flex items-center justify-center shadow-md transform group-hover:rotate-6 transition duration-300">
+                        <!-- Custom SVG Logo Icon representing Express Motion -->
+                        <svg class="w-full h-full text-navy fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+                            <path d="M4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black tracking-wide text-white">مدار <span class="text-gold">اكسبريس</span></span>
+                        <span class="text-xs text-gray-300 tracking-wider">Madar Express Logistics</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 space-x-reverse font-medium text-sm">
+                    <a href="#home" class="text-gold hover:text-gold-light transition">الرئيسية</a>
+                    <a href="#services" class="hover:text-gold transition">خدماتنا</a>
+                    <a href="#tracking" class="hover:text-gold transition">تتبع شحنتك</a>
+                    <a href="#calculator" class="hover:text-gold transition">حاسبة الشحن</a>
+                    <a href="#careers" class="hover:text-gold transition">انضم لفريقنا</a>
+                    <a href="#about" class="hover:text-gold transition">عن الشركة</a>
+                    <a href="#contact" class="bg-gold text-navy font-bold px-5 py-2.5 rounded-lg hover:bg-gold-light transition shadow-md">تواصل معنا</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-light border-b border-gold/20 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="block text-gold py-2 font-medium">الرئيسية</a>
+            <a href="#services" class="block text-gray-200 hover:text-gold py-2 font-medium">خدماتنا</a>
+            <a href="#tracking" class="block text-gray-200 hover:text-gold py-2 font-medium">تتبع شحنتك</a>
+            <a href="#calculator" class="block text-gray-200 hover:text-gold py-2 font-medium">حاسبة الشحن</a>
+            <a href="#careers" class="block text-gray-200 hover:text-gold py-2 font-medium">انضم لفريقنا</a>
+            <a href="#about" class="block text-gray-200 hover:text-gold py-2 font-medium">عن الشركة</a>
+            <a href="#contact" class="block text-center bg-gold text-navy font-bold py-2.5 rounded-lg mt-2">تواصل معنا</a>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section id="home" class="relative bg-navy text-white py-20 lg:py-28 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#C59B27_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center md:text-right">
+                    <div class="inline-flex items-center space-x-2 space-x-reverse bg-navy-light/80 border border-gold/30 rounded-full px-4 py-1.5 text-xs text-gold font-medium">
+                        <i class="fas fa-bolt"></i>
+                        <span>شحنتك في أمان.. أسرع توصيل في مصر</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
+                        السرعة والدقة في <br>
+                        <span class="text-transparent bg-clip-text gold-gradient">شحن وبضائع متجرك</span>
+                    </h1>
+                    <p class="text-gray-300 text-lg leading-relaxed max-w-xl">
+                        نقدم أسرع وأمن حلول الشحن اللوجستي والتجارة الإلكترونية لتغطية شاملة بكافة محافظات جمهورية مصر العربية بأعلى معايير الجودة والأمان.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
+                        <a href="#tracking" class="bg-gold hover:bg-gold-light text-navy font-bold px-8 py-4 rounded-xl shadow-lg transition flex items-center justify-center space-x-2 space-x-reverse">
+                            <i class="fas fa-search"></i>
+                            <span>تتبع شحنتك الآن</span>
+                        </a>
+                        <a href="#calculator" class="bg-navy-light border border-gold/50 hover:bg-gold/10 text-white font-bold px-8 py-4 rounded-xl transition flex items-center justify-center space-x-2 space-x-reverse">
+                            <i class="fas fa-calculator"></i>
+                            <span>طلب شحنة / احسب تكلفة</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic Card -->
+                <div class="relative flex justify-center">
+                    <div class="w-full max-w-md bg-navy-light p-8 rounded-2xl border border-gold/30 shadow-2xl relative">
+                        <div class="absolute -top-4 -right-4 bg-gold text-navy text-xs font-black px-3 py-1 rounded-full shadow">تغطية 27 محافظة</div>
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between pb-4 border-b border-gray-700">
+                                <div class="flex items-center space-x-3 space-x-reverse">
+                                    <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold">
+                                        <i class="fas fa-truck-fast text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white">توصيل سريع اليوم التالي</h4>
+                                        <p class="text-xs text-gray-400">القاهرة الكبرى والإسكندرية والمدن الرئيسية</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 text-center">
+                                <div class="bg-navy/60 p-4 rounded-xl border border-gray-700">
+                                    <div class="text-2xl font-black text-gold">300+</div>
+                                    <div class="text-xs text-gray-300">مندوب توصيل محترف</div>
+                                </div>
+                                <div class="bg-navy/60 p-4 rounded-xl border border-gray-700">
+                                    <div class="text-2xl font-black text-gold">99.8%</div>
+                                    <div class="text-xs text-gray-300">نسبة التسليم بفي الموعد</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Shipment Tracking Widget -->
+    <section id="tracking" class="py-16 -mt-10 relative z-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl custom-shadow p-6 sm:p-10 border border-gray-100">
+                <div class="text-center max-w-xl mx-auto mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-navy">تتبع حالة شحنتك</h2>
+                    <p class="text-gray-500 text-sm mt-2">أدخل رقم الشحنة لمتابعة خط سير الشحنة لحظة بلحظة</p>
+                </div>
+
+                <!-- Input Box -->
+                <div class="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto mb-8">
+                    <div class="relative flex-1">
+                        <i class="fas fa-barcode absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="text" id="tracking-input" placeholder="أدخل رقم الشحنة (مثال: MDR-1001)" class="w-full pr-11 pl-4 py-3.5 rounded-xl border border-gray-300 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition">
+                    </div>
+                    <button onclick="trackShipment()" class="bg-navy hover:bg-navy-light text-white font-bold px-8 py-3.5 rounded-xl transition shadow flex items-center justify-center space-x-2 space-x-reverse">
+                        <i class="fas fa-search"></i>
+                        <span>تتبع</span>
+                    </button>
+                </div>
+
+                <!-- Status Visual Tracker -->
+                <div id="tracking-result" class="hidden bg-graybg rounded-xl p-6 border border-gray-200">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 pb-4 border-b border-gray-300 gap-2">
+                        <div>
+                            <span class="text-xs text-gray-500">رقم الشحنة:</span>
+                            <span id="track-id-display" class="font-bold text-navy mr-2">MDR-1001</span>
+                        </div>
+                        <div>
+                            <span class="text-xs text-gray-500">الوجهة:</span>
+                            <span id="track-destination" class="font-bold text-navy mr-2">القاهرة -> الإسكندرية</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-gold/20 text-gold-dark" id="track-status-badge">قيد الفرز والجهوزية</span>
+                        </div>
+                    </div>
+
+                    <!-- Steps Progress Bar -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center relative">
+                        <!-- Step 1 -->
+                        <div class="tracking-step flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-gold text-navy font-bold flex items-center justify-center mb-2 shadow">
+                                <i class="fas fa-box-check"></i>
+                            </div>
+                            <span class="font-bold text-xs text-navy">تم الاستلام</span>
+                            <span class="text-[10px] text-gray-500 mt-1">10:30 ص - أمس</span>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="tracking-step flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-gold text-navy font-bold flex items-center justify-center mb-2 shadow">
+                                <i class="fas fa-boxes-packing"></i>
+                            </div>
+                            <span class="font-bold text-xs text-navy">قيد الفرز</span>
+                            <span class="text-[10px] text-gray-500 mt-1">02:15 م - أمس</span>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="tracking-step flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-navy text-white font-bold flex items-center justify-center mb-2 shadow">
+                                <i class="fas fa-truck-ramp-box"></i>
+                            </div>
+                            <span class="font-bold text-xs text-navy">مع المندوب</span>
+                            <span class="text-[10px] text-gray-500 mt-1">09:00 ص - اليوم</span>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="tracking-step flex flex-col items-center opacity-40">
+                            <div class="w-12 h-12 rounded-full bg-gray-300 text-gray-600 font-bold flex items-center justify-center mb-2">
+                                <i class="fas fa-house-circle-check"></i>
+                            </div>
+                            <span class="font-bold text-xs text-gray-600">تم التسليم</span>
+                            <span class="text-[10px] text-gray-500 mt-1">متوقع اليوم</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Shipping Cost Calculator -->
+    <section id="calculator" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-gold font-bold text-sm uppercase tracking-widest">تشفيف التكاليف</span>
+                <h2 class="text-3xl font-black text-navy mt-1">حاسبة تكلفة الشحن التقديرية</h2>
+                <p class="text-gray-500 mt-2">احسب تكلفة شحنتك بسهولة وشفافية قبل البدء</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 items-start">
+                <!-- Form -->
+                <div class="lg:col-span-2 bg-graybg p-6 sm:p-8 rounded-2xl border border-gray-200">
+                    <form id="shipping-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-navy mb-2">المحافظة (الوجهة)</label>
+                                <select id="calc-region" class="w-full bg-white p-3.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
+                                    <option value="cairo">القاهرة والجيزة (40 ج.م)</option>
+                                    <option value="alex">الإسكندرية والبحيرة (55 ج.م)</option>
+                                    <option value="delta">وجه بحري والدلتا (60 ج.م)</option>
+                                    <option value="canal">مدن القناة (65 ج.م)</option>
+                                    <option value="upper">شمال الصعيد (75 ج.م)</option>
+                                    <option value="deep_upper">جنوب الصعيد (90 ج.م)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-navy mb-2">نوع الشحنة</label>
+                                <select id="calc-type" class="w-full bg-white p-3.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
+                                    <option value="standard">مستندات / طرد خفيف</option>
+                                    <option value="ecom">منتجات تجارة إلكترونية</option>
+                                    <option value="fragile">بضائع قابلة للكسر (+15 ج.م)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-navy mb-2">الوزن التقريبي (كجم)</label>
+                                <input type="number" id="calc-weight" min="1" value="1" class="w-full bg-white p-3.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold focus:outline-none">
+                                <span class="text-xs text-gray-500 mt-1 block">* أرقام فوق 5 كجم تضاف 5 ج.م لكل كجم إضافي</span>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-navy mb-2">خدمة التحصيل عند الاستلام (COD)</label>
+                                <div class="flex items-center space-x-4 space-x-reverse pt-3">
+                                    <label class="flex items-center space-x-2 space-x-reverse cursor-pointer">
+                                        <input type="radio" name="cod" value="yes" checked class="text-gold focus:ring-gold">
+                                        <span class="text-sm font-semibold">نعم (مطلوبة)</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 space-x-reverse cursor-pointer">
+                                        <input type="radio" name="cod" value="no" class="text-gold focus:ring-gold">
+                                        <span class="text-sm font-semibold">لا (مدفوع مسبقاً)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" onclick="calculateCost()" class="w-full bg-gold hover:bg-gold-light text-navy font-bold py-4 rounded-xl transition shadow text-center">
+                            حساب التكلفة التقديرية
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Result Box -->
+                <div class="bg-navy text-white p-8 rounded-2xl shadow-xl flex flex-col justify-between border border-gold/30 h-full">
+                    <div>
+                        <h3 class="text-xl font-bold border-b border-gray-700 pb-4 text-gold">ملخص التكلفة</h3>
+                        <div class="space-y-4 my-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-300">سعر الشحن الأساسي:</span>
+                                <span id="res-base" class="font-bold">40 ج.م</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-300">رسوم الوزن الإضافي:</span>
+                                <span id="res-weight" class="font-bold">0 ج.م</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-300">خدمات خاصة:</span>
+                                <span id="res-extra" class="font-bold">0 ج.م</span>
+                            </div>
+                            <div class="border-t border-gray-700 pt-4 flex justify-between items-center">
+                                <span class="text-lg font-bold">الإجمالي التقديري:</span>
+                                <span id="res-total" class="text-3xl font-black text-gold">40 ج.م</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-navy-light p-4 rounded-xl text-xs text-gray-300 space-y-2">
+                        <p><i class="fas fa-circle-info text-gold ml-1"></i> الأسعار شاملاً ضريبة القيمة المضافة.</p>
+                        <p><i class="fas fa-truck text-gold ml-1"></i> يتم تحويل مبالغ التحصيل COD خلال 48 ساعة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Services Section -->
+    <section id="services" class="py-20 bg-graybg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-gold font-bold text-sm uppercase tracking-widest">خدمات مدار</span>
+                <h2 class="text-3xl font-black text-navy mt-1">حلول لوجستية مصممة لنشاطك التجاري</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-2xl custom-shadow hover:-translate-y-2 transition duration-300 border-t-4 border-gold">
+                    <div class="w-14 h-14 bg-gold/10 text-gold rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-3">شحن التجارة الإلكترونية</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        خدمة متخصصة لأصحاب المتاجر الإلكترونية مع إدارة كاملة للطلبات والتوصيل السريع للمستهلك النهائي.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-2xl custom-shadow hover:-translate-y-2 transition duration-300 border-t-4 border-navy">
+                    <div class="w-14 h-14 bg-navy/10 text-navy rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-hand-holding-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-3">الدفع عند الاستلام (COD)</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        تحصيل آمن وسريع لأموالك مع إمكانية تحويل المبالغ لحسابك البنكي أو المحافظ الإلكترونية بشكل دوري.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-2xl custom-shadow hover:-translate-y-2 transition duration-300 border-t-4 border-gold">
+                    <div class="w-14 h-14 bg-gold/10 text-gold rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-3">التوصيل في نفس اليوم</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        خدمة الشحن السريع للغاية داخل القاهرة والجيزة للمستندات والطلب الحساس للوقت.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-8 rounded-2xl custom-shadow hover:-translate-y-2 transition duration-300 border-t-4 border-navy">
+                    <div class="w-14 h-14 bg-navy/10 text-navy rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-3">تغطية شاملة للمحافظات</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        شبكة لوجستية واسعة تصل إلى كافة المحافظات من وجه بحري والدلتا وحتى الصعيد ومدن القناة.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Courier Recruitment & Career Growth Section -->
+    <section id="careers" class="py-20 bg-navy text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-gold font-bold text-sm tracking-widest">انضم لفرسان مدار</span>
+                    <h2 class="text-3xl sm:text-4xl font-black leading-tight">
+                        ابنِ مسارك المهني معنا.. <br>
+                        <span class="text-gold">من مندوب توصيل إلى مشرف محطة</span>
+                    </h2>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        نؤمن بأن مندوبي الشحن هم سفراؤنا في الميدان. نلتزم بتقديم بيئة عمل عادلة، تدريب احترافي، وحوافز مجزية تتناسب مع مجهوداتكم.
+                    </p>
+
+                    <!-- Features/Benefits -->
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start space-x-3 space-x-reverse bg-navy-light p-4 rounded-xl border border-gray-700">
+                            <i class="fas fa-shield-halved text-gold text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-sm">تأمين وتدريب سلامة</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">تدريب على القيادة الآمنة واستخدام تطبيقات التوصيل</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 space-x-reverse bg-navy-light p-4 rounded-xl border border-gray-700">
+                            <i class="fas fa-chart-line text-gold text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-sm">مسار وظيفي واضح</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">فرص ترقية دورية للمتميزين للإشراف والإدارة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Courier Recruitment Form -->
+                <div class="bg-white text-gray-800 p-8 rounded-2xl shadow-2xl border-t-8 border-gold">
+                    <h3 class="text-2xl font-bold text-navy mb-2">نموذج انضمام فرسان التوصيل</h3>
+                    <p class="text-xs text-gray-500 mb-6">قدّم طلبك الآن وسنقوم بالتواصل معك لمقابلة العمل</p>
+
+                    <form id="courier-form" onsubmit="submitCourierApp(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-navy mb-1">الاسم بالكامل</label>
+                            <input type="text" required placeholder="أدخل اسمك رباعي" class="w-full p-3 rounded-lg border border-gray-300 text-sm focus:border-gold focus:outline-none">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-navy mb-1">رقم الهاتف (واتساب)</label>
+                                <input type="tel" required placeholder="01XXXXXXXXX" class="w-full p-3 rounded-lg border border-gray-300 text-sm focus:border-gold focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-navy mb-1">المحافظة</label>
+                                <select class="w-full p-3 rounded-lg border border-gray-300 text-sm focus:border-gold focus:outline-none">
+                                    <option>القاهرة</option>
+                                    <option>الجيزة</option>
+                                    <option>الإسكندرية</option>
+                                    <option>القليوبية</option>
+                                    <option>أخرى</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-navy mb-1">وسيلة التوصيل المتاحة</label>
+                            <select class="w-full p-3 rounded-lg border border-gray-300 text-sm focus:border-gold focus:outline-none">
+                                <option>دراجة نارية (موتوسيكل)</option>
+                                <option>سيارة فاند / نقل خفيف</option>
+                                <option>بدون وسيلة (العمل على مركبات الشركة)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-gold hover:bg-gold-light text-navy font-bold py-3.5 rounded-lg transition shadow">
+                            إرسال طلب الانضمام
+                        </button>
+                    </form>
+                    <div id="courier-success" class="hidden mt-4 p-4 bg-green-100 text-green-700 text-xs rounded-lg text-center font-bold">
+                        تم إرسال طلبك بنجاح! يتواصل معك فريق الموارد البشرية قريباً.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. About Us Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-gold font-bold text-sm uppercase tracking-widest">عن مدار</span>
+                    <h2 class="text-3xl font-black text-navy mt-1 mb-6">رائدون في الخدمات اللوجستية وتوصيل الشحنات</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        تعد شركة **مدار للخدمات اللوجستية والشحن** واحدة من أسرع الشركات نمواً في سوق الشحن المصري. نحن نفخر بفريق عمل متكامل يضم أكثر من **400 موظف إداري ولوجستي** وأكثر من **300 مندوب توصيل (فارس)** يعملون على مدار الساعة لضمان وصول شحناتكم بأمان وفي الوقت المحدد.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        تعتمد رؤيتنا على تقديم بيئة عمل نموذجية لمناديبنا وتوظيف أحدث التقنيات لخدمة تجار التجارة الإلكترونية والمؤسسات في كافة أنحاء مصر.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 pt-2">
+                        <div class="border-r-4 border-gold pr-4">
+                            <span class="text-3xl font-black text-navy block">400+</span>
+                            <span class="text-xs text-gray-500 font-bold">موظف ومتخصص</span>
+                        </div>
+                        <div class="border-r-4 border-navy pr-4">
+                            <span class="text-3xl font-black text-navy block">300+</span>
+                            <span class="text-xs text-gray-500 font-bold">مندوب ميداني</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-graybg p-6 rounded-2xl text-center border border-gray-200">
+                        <i class="fas fa-bullseye text-3xl text-gold mb-3"></i>
+                        <h4 class="font-bold text-navy mb-1">دقة المواعيد</h4>
+                        <p class="text-xs text-gray-500">التزام تام بتسليم الشحنات في الإطار الزمني المحدد.</p>
+                    </div>
+                    <div class="bg-graybg p-6 rounded-2xl text-center border border-gray-200 mt-6">
+                        <i class="fas fa-headset text-3xl text-navy mb-3"></i>
+                        <h4 class="font-bold text-navy mb-1">دعم متواصل</h4>
+                        <p class="text-xs text-gray-500">خدمة عملاء متواجدة للرد على الاستفسارات والتتبع.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Footer Section -->
+    <footer id="contact" class="bg-navy-dark text-white pt-16 pb-8 border-t border-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
+                <!-- Company Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3 space-x-reverse">
+                        <div class="w-10 h-10 rounded-lg gold-gradient p-2 flex items-center justify-center">
+                            <svg class="w-full h-full text-navy fill-current" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-black text-white">مدار <span class="text-gold">اكسبريس</span></span>
+                    </div>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        شريكك اللوجستي الموثوق للشحن والتوصيل السريع بكافة محافظات جمهورية مصر العربية.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-sm font-bold text-gold uppercase tracking-wider mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li><a href="#tracking" class="hover:text-gold transition">تتبع الشحنات</a></li>
+                        <li><a href="#calculator" class="hover:text-gold transition">حاسبة الأسعار</a></li>
+                        <li><a href="#services" class="hover:text-gold transition">خدمات التجارة الإلكترونية</a></li>
+                        <li><a href="#careers" class="hover:text-gold transition">وظائف المناديب</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-sm font-bold text-gold uppercase tracking-wider mb-4">بيانات الاتصال</h4>
+                    <ul class="space-y-3 text-xs text-gray-300">
+                        <li class="flex items-center space-x-3 space-x-reverse">
+                            <i class="fas fa-location-dot text-gold"></i>
+                            <span>القاهرة، جمهورية مصر العربية</span>
+                        </li>
+                        <li class="flex items-center space-x-3 space-x-reverse">
+                            <i class="fas fa-phone text-gold"></i>
+                            <span>19XXX / 01000000000</span>
+                        </li>
+                        <li class="flex items-center space-x-3 space-x-reverse">
+                            <i class="fas fa-envelope text-gold"></i>
+                            <span>info@madarexpress.eg</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social & Working Hours -->
+                <div>
+                    <h4 class="text-sm font-bold text-gold uppercase tracking-wider mb-4">تابعنا</h4>
+                    <div class="flex space-x-3 space-x-reverse mb-6">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-navy-light flex items-center justify-center text-gray-300 hover:text-gold hover:bg-navy transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-navy-light flex items-center justify-center text-gray-300 hover:text-gold hover:bg-navy transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-navy-light flex items-center justify-center text-gray-300 hover:text-gold hover:bg-navy transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span class="text-xs text-gray-400 block">ساعات العمل: السبت - الخميس (9 ص - 6 م)</span>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 text-center text-xs text-gray-500">
+                <p>&copy; 2026 شركة مدار للخدمات اللوجستية والشحن (Madar Express). جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Mobile Navigation Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 1. Shipment Tracking Function
+        function trackShipment() {
+            const inputVal = document.getElementById('tracking-input').value.trim();
+            const resultBox = document.getElementById('tracking-result');
+            const idDisplay = document.getElementById('track-id-display');
+
+            if (inputVal === "") {
+                alert("يرجى إدخال رقم الشحنة أولاً");
+                return;
+            }
+
+            // Display input and make box visible
+            idDisplay.innerText = inputVal.toUpperCase();
+            resultBox.classList.remove('hidden');
+
+            // Scroll gently to result
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // 2. Calculator Functionality
+        function calculateCost() {
+            const region = document.getElementById('calc-region').value;
+            const type = document.getElementById('calc-type').value;
+            const weight = parseFloat(document.getElementById('calc-weight').value) || 1;
+
+            let baseCost = 40;
+
+            // Region pricing
+            switch(region) {
+                case 'cairo': baseCost = 40; break;
+                case 'alex': baseCost = 55; break;
+                case 'delta': baseCost = 60; break;
+                case 'canal': baseCost = 65; break;
+                case 'upper': baseCost = 75; break;
+                case 'deep_upper': baseCost = 90; break;
+            }
+
+            // Weight extra cost (Over 5kg: +5 EGP/kg)
+            let weightExtra = 0;
+            if (weight > 5) {
+                weightExtra = (weight - 5) * 5;
+            }
+
+            // Type extra cost
+            let typeExtra = 0;
+            if (type === 'fragile') {
+                typeExtra = 15;
+            }
+
+            const total = baseCost + weightExtra + typeExtra;
+
+            // Update UI
+            document.getElementById('res-base').innerText = baseCost + " ج.م";
+            document.getElementById('res-weight').innerText = weightExtra + " ج.م";
+            document.getElementById('res-extra').innerText = typeExtra + " ج.م";
+            document.getElementById('res-total').innerText = total + " ج.م";
+        }
+
+        // 3. Recruitment Form Submission Demo
+        function submitCourierApp(e) {
+            e.preventDefault();
+            const form = document.getElementById('courier-form');
+            const successMsg = document.getElementById('courier-success');
+
+            form.reset();
+            successMsg.classList.remove('hidden');
+
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
